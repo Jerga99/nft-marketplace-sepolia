@@ -8,6 +8,7 @@ import { NftMarketContract } from "@_types/nftMarketContract";
 
 const NETWORKS = {
   "5777": "Ganache",
+  "11155111": "Sepolia"
 }
 
 type NETWORK = typeof NETWORKS;
@@ -30,7 +31,7 @@ export function withSession(handler: any) {
 }
 
 const url = process.env.NODE_ENV === "production" ? 
-  process.env.INFURA_ROPSTEN_URL : 
+  process.env.INFURA_SEPOLIA_URL : 
   "http://127.0.0.1:7545";
 
 export const addressCheckMiddleware = async (req: NextApiRequest & { session: Session}, res: NextApiResponse) => {
